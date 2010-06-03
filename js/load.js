@@ -12,7 +12,7 @@ function slideMeme() {
         return false;
     }
     if (!$("#svPlayerId").length) {
-        alert("You need to be on a presentation to use this");
+        alert("You need to be on a loaded presentation page to use this");
         return false;
     }
     
@@ -26,7 +26,8 @@ function slideMeme() {
         dataType: "jsonp",
         //timeout: 15000,
         success: function (data, status) {
-            location.href = 'http://meme.yahoo.com/dashboard/?photo='+data.gif+'&caption=<a href="'+data.url+'">'+data.title+'</a>';
+        var aspas = '%22';
+        $("#darkBackgroundLayer").addClass("previewBackground").removeClass("darkenBackground").html('<a href="http://meme.yahoo.com/dashboard/?photo='+data.gif+'&caption=<a href='+aspas+data.url+aspas+'>'+data.title+'</a>">preview - click to meme<br/><img src="'+data.gif+'" /></a>');
         },
         error: function (xOptions, textStatus) {
             $("#darkBackgroundLayer").hide();            

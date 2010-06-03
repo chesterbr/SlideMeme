@@ -15,3 +15,24 @@ padding-top:150px;
 }
 
 
+.previewBackground {
+background-color: #ffffff; 
+opacity: 1.0; /* Safari, Opera */
+-moz-opacity:1.0; /* FireFox */
+filter: alpha(opacity=100); /* IE */
+z-index: 200;
+height: 100%;
+width: 100%;
+background-repeat:repeat;
+position:fixed;
+top: 0px;
+left: 0px;
+text-align: center;
+padding-top:150px;
+font-size:18px;
+color:#863486;
+font-face: Helvetica, Arial, sans-serif;
+font-weight:bold;
+}
+
+

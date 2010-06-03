@@ -42,7 +42,7 @@
     
     // Now we grab the 5 PNGs and the last picture, resize and animate to a gif
     $final_gif_name = "img" . uniqid() . ".gif";
-    exec($CONVERT . " -resize 320x240 -delay 200 -loop 0 " . $tempprefix . "*.png "
+    exec($CONVERT . " -limit memory 64 -limit map 128 -resize 320x240 -delay 200 -loop 0 " . $tempprefix . "*.png "
                   . $GIF_LAST_PICTURE .  " " . $FINAL_DIR . $final_gif_name);
 
     // Cleanup

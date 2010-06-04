@@ -26,8 +26,13 @@ function slideMeme() {
         dataType: "jsonp",
         //timeout: 15000,
         success: function (data, status) {
-        var aspas = '%22';
-        $("#darkBackgroundLayer").addClass("previewBackground").removeClass("darkenBackground").html('<a href="http://meme.yahoo.com/dashboard/?photo='+data.gif+'&caption=<a href='+aspas+data.url+aspas+'>'+data.title+'</a>">preview - click to meme<br/><img src="'+data.gif+'" /></a>');
+            if (data.error) {
+                $("#darkBackgroundLayer").removeClass("darkenBackground");
+                alert(data.error);
+                return;
+            }
+            var aspas = '%22';
+            $("#darkBackgroundLayer").addClass("previewBackground").removeClass("darkenBackground").html('<a href="http://meme.yahoo.com/dashboard/?photo='+data.gif+'&caption=<a href='+aspas+data.url+aspas+'>'+data.title+'</a>">preview - click to meme<br/><img src="'+data.gif+'" /></a>');
         },
         error: function (xOptions, textStatus) {
             $("#darkBackgroundLayer").hide();            

@@ -9,9 +9,9 @@
     $TEMP_DIR = '...';
     
     // Site configuration
-    $GIF_LAST_PICTURE = '...';
-    $FINAL_DIR = "...";
-    $URL_PREFIX = ".../";
+    $GIF_LAST_PICTURE = '~/slide.memethis.com/end.gif';
+    $FINAL_DIR = ".../img.slide.memethis.com/img/";
+    $URL_PREFIX = "http://img.slide.memethis.com/img/";
     
     // Just playing it safe...
     $slideshowUrl = $_REQUEST["url"];
@@ -27,6 +27,9 @@
  
     $tempprefix = $TEMP_DIR . "img" . uniqid();
     $i = 1;
+    if (!$slides_metainfo->query->results->item->Show->Slide) {
+        die($_REQUEST["callback"].'('.json_encode(array("error"=>"Sorry, SlideMeme only works with non-multimedia presentations")).')');
+    }
     foreach ($slides_metainfo->query->results->item->Show->Slide as $slide) {
         // Let's download each slide's swf and convert it to a png
         // (we'd rather use a GIF, but that's what swfrender can do)

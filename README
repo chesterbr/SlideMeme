@@ -1,11 +1,11 @@
 SlideMeme was a hack created during the Yahoo! Open Hack Day Brazil 2010, which allows users to post slides from SlideShare to Yahoo! Meme (by converting them to animated GIFs).
 
-It requires the installation of the freeware SWF to Image ActiveX Library, which can be downloaded at http://bytescout.com/download/download_freeware.html. Yes, it means you need a Windows Server to run it - one possible evolution would be to port that part to swfrender (http://wiki.swftools.org/index.php/Swfrender) to kill that dependency.
+It uses swfrender and ImageMagick to do the conversion (formerly it needed a Windows Server, but that changed after the Hack Day, and now it runs on any Linux-like machine with that software installed.)
 
-This project contains both the back-end code (the ASP and PHP pages, the later being the entry point), the bookmarklet payload (within the js folder) and the index.html file that makes the bookmarklet avalable. Related image and stylesheet files were also uplaoded, allowing a third party to fully reproduce the site.
+This project contains both the back-end code (a single PHP page), the bookmarklet payload (within the js folder) and the index.html file that makes the bookmarklet avalable. Related image and stylesheet files were also uplaoded, allowing a third party to fully reproduce the site, if desired.
 
-There is no test/deploy process (it was a 24-hour hack), but one should be able to setup IIS, the ActiveX mentioned above and run it (maybe switching URLs from slide.memethis.com to the new address).
+There is no test/deploy process (it was a 24-hour hack), but one should be able to setup and run it (maybe switching URLs from slide.memethis.com to the new address).
 
-Details about each component can be found in Portuguese at http://chester.blog.br/archives/2010/03/slidememe.html (reasonably machine-translated here: http://bit.ly/dsIUoU). The version on that blog post still used PHP code to decode the slide URLs, the current one already uses the YQL table.
+Details about each component can be found in Portuguese at http://chester.blog.br/archives/2010/03/slidememe.html (reasonably machine-translated here: http://bit.ly/dsIUoU). The version on that blog post still used PHP code to decode the slide URLs and an ASP page/ActiveX component, the current one already uses the YQL table to get the slides and a single PHP for everything else.
 
 SlideShare, Yahoo!, YQL, Yahoo! Meme and other mentioned trademarks are copyrighted by their respective owners, and have all their rights reserved. The authors are by no means connected to or intending to represent any of those companies.
